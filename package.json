@@ -1,0 +1,22 @@
+{
+    "name": "coffee-shop",
+    "version": "1.0.0",
+    "description": "MEAN Stack Application",
+    "main": "app.js",
+    "scripts": {
+        "start": "nodemon server.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "dependencies": {
+        "body-parser": "^1.13.2",
+        "cookie-parser": "^1.4.3",
+        "express": "^4.13.0",
+        "express-session": "^1.11.3",
+        "lodash": "^3.10.0",
+        "mongodb": "^2.1.16",
+        "mongoose": "^5.0.6",
+        "q": "^1.4.1",
+        "request": "^2.58.0",
+        "rootpath": "^0.1.2"
+    }
+}

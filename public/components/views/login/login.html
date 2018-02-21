@@ -1,0 +1,34 @@
+<!-- 
+    <style type="text/css">
+        body {
+            padding-top: 100px;
+        }
+
+        .form-container {
+            width: 400px;
+            margin: auto;
+        }
+
+        .credits {
+            border-top: 1px solid #ddd;
+            margin-top: 40px;
+            padding-top: 20px;
+        }
+    </style> -->
+    <div class="form-container">
+        <form method="post">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" name="username" id="username" ng-model="$ctrl.user.username" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" ng-model="$ctrl.user.password" class="form-control" />
+            </div>
+            <div class="form-group">
+                <button type="submit" ng-click="$ctrl.Login()" class="btn btn-primary">Login</button>
+                <!-- <a href="../register/register.html" class="btn btn-link">Register</a> -->
+            </div>
+        </form>
+    </div> 
+
