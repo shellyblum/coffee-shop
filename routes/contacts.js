@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var db = require('db/contact.js');
+var db = require('models/contact.js');
 
 // routes
 router.post('/', createContact);

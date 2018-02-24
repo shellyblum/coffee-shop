@@ -252,3 +252,7 @@ color: #faf0e3;
 .font-weight-light {
   font-weight: 100 !important;
 }
+
+#contact-form {
+  color: white;
+}

@@ -1,7 +1,7 @@
     angular
         .module('app')
         .component("home", {
-            templateUrl: "./components/pages/home/home.html",
+            templateUrl: "./components/views/home/home.html",
         controller: Controller });
     
     function Controller (ContactService, $scope, $state) {

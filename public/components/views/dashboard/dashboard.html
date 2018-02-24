@@ -6,22 +6,29 @@
         <div class="row">
         <div class="col-xl-9 col-lg-10 mx-auto">
             <div class="bg-faded rounded p-5">
-                <h2 class="section-heading mb-4">
-                    <span class="section-heading-upper">Hello {{$ctrl.user.firstName}}!</span>
-                    <span class="section-heading-lower">Dashboard</span>
-                </h2>
-                <table class="table table-hover">
-                    <tr>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Phone</th>
-                    </tr>
-                    <tr ng-repeat="contact in contacts">
-                        <td>{{$ctrl.contact.name}}</td>
-                        <td>{{$ctrl.contact.email}}</td>
-                        <td>{{$ctrl.contact.phone}}</td>
-                    </tr>
-                </table>
+                <span ng-show="!currentUser">
+                    <a ui-sref="login">Login</a> |
+                    <a ui-sref="register">Register</a>
+                </span>
+                <div ng-show="currentUser">
+                    <h2 class="section-heading mb-4">
+                        <span class="section-heading-upper">Hello {{$ctrl.currentUser.username}}!</span>
+                        <span class="section-heading-lower">Dashboard</span>
+                        <a ui-sref="logout" ng-click="$ctrl.logout()">Logout</a>
+                    </h2>
+                    <table class="table table-hover">
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                        </tr>
+                        <tr ng-repeat="contact in contacts">
+                            <td>{{$ctrl.contact.name}}</td>
+                            <td>{{$ctrl.contact.email}}</td>
+                            <td>{{$ctrl.contact.phone}}</td>
+                        </tr>
+                    </table>
+                </div>
             </div>
         </div>
         </div>

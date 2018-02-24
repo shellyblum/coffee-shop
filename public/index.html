@@ -17,8 +17,8 @@
 
     <!-- external scripts -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.3/angular-ui-router.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.js"></script>
+    <script src="//npmcdn.com/angular-ui-router@1.0.0-alpha.4/release/angular-ui-router.js"></script>
 
     <!-- application scripts -->
     <script src="app.js"></script>
@@ -30,6 +30,7 @@
     <script src="components/views/home/home.controller.js"></script>
     <!-- <script src="components/account/account.controller.js"></script> -->
     <script src="components/views/login/login.js"></script> 
+    <script src="components/views/register/register.js"></script> 
     <!-- Bootstrap core JavaScript -->
     <script src="components/views/vendor/jquery/jquery.min.js"></script>
     <script src="components/views/vendor/bootstrap/js/bootstrap.bundle.min.js"></script> 
@@ -51,6 +52,11 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav mx-auto">
+          <li class="nav-item px-lg-4">
+            <a class="nav-link text-uppercase text-expanded">
+              <span class="section-heading-upper">Welcome {{currentUser.username}}!</span>
+            </a>
+          </li>
           <li class="nav-item active px-lg-4">
             <a class="nav-link text-uppercase text-expanded" ui-sref="home">Home
               <!-- <span ng-show="" class="sr-only">(current)</span> -->

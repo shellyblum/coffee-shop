@@ -2,9 +2,9 @@
 .module('app')
 .component("dashboard", {
     templateUrl: "./components/views/dashboard/dashboard.html",
-    controller: Controller });
+    controller: initController });
 
-function Controller (ContactService, $scope, $state) {
+function initController (ContactService, $state, $rootScope) {
 
     const self = this;
     self.contacts = {};
@@ -13,6 +13,15 @@ function Controller (ContactService, $scope, $state) {
     self.$onInit = function () {
         initController();
     }
+
+    this.logout = function() {
+        $http.post("/logout")
+          .success(function() {
+            $rootScope.currentUser = null;
+            $state.go("home");
+          });
+      }
+
 
     ContactService.GetAll().then(function (contacts) {
         self.contacts = contacts;

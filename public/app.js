@@ -8,19 +8,6 @@
 
     function config($stateProvider, $urlRouterProvider) {
 
-        var authenticated = ['$q', 'AuthService', function ($q, AuthService) {
-            var deferred = $q.defer();
-            var isLoggedIn = AuthService.isLoggedIn()
-            if (isLoggedIn === true) {
-                deferred.resolve();
-            } else {
-                alert('Not logged in')
-                deferred.reject('Not logged in');
-            }
-            return deferred.promise;
-        }];
-
-
         // default route
         $urlRouterProvider.otherwise("/");
 
@@ -49,7 +36,7 @@
                 url: '/dashboard',
                 component: "dashboard",
                 resolve: {
-                    authenticated: authenticated
+                    authenticated: checkAuthentication
                 }
             })
             // .state('account', {
@@ -58,13 +45,32 @@
             // })
             .state('login', {
                 url: '/login',
-                templateUrl: 'components/views/login/login.html'
+                // templateUrl: 'components/views/login/login.html'
+                component: "login"
+            })
+            .state('register', {
+                url: '/register',
+                // templateUrl: 'components/register/register.html'
+                component: "register"
             });
-            // .state('register', {
-            //     url: '/login',
-            //     templateUrl: 'components/register/register.html'
-            // });
-        
+
+            var checkAuthentication = function($q, $timeout, $http, $state, $rootScope) {
+                var deferred = $q.defer();
+              
+                $http.get('/loggedin').success(function(user) {
+                  $rootScope.errorMessage = null;
+                  //User is Authenticated
+                  if (user !== '0') {
+                    $rootScope.currentUser = user;
+                    deferred.resolve();
+                  } else { //User is not Authenticated
+                    $rootScope.errorMessage = 'You need to log in';
+                    deferred.reject();
+                    $state.go('/login');
+                  }
+                });
+                return deferred.promise;
+            }
     }
 
     // function run($http, $rootScope, $window) {
